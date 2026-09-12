@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Dr. B. R. Ambedkar",
+    "file": "public/images/inspirations/ambedkar.webp",
+    "author": "Unknown photographer",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Dr._Bhimrao_Ambedkar.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Dr._Bhimrao_Ambedkar.jpg",
+    "license": "Public domain (Commons labels: PD-India and PD-1996)",
+    "license_url": "https://commons.wikimedia.org/wiki/File:Dr._Bhimrao_Ambedkar.jpg#Licensing",
+    "credit": "Dr. B. R. Ambedkar — unknown photographer, via Wikimedia Commons; public domain.",
+    "obligations": "No attribution obligation under stated public-domain status; retain source credit for provenance. Label any crop as cropped.",
+    "dimensions": [
+      1229,
+      1600
+    ],
+    "notes": "Standard archival photographic portrait, current Commons version explicitly reverted an AI-upscaled overwrite. Commons source metadata dates photo after 1948 / 1950s; source page carries both India and US public domain tags. These are Commons assertions, not an independent copyright chain investigation."
+  },
+  {
+    "name": "Kanshi Ram, BSP founder",
+    "file": "public/images/inspirations/kanshi-ram.webp",
+    "author": "Deoriaamit (Commons uploader/claimed creator)",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kanshiram.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Kanshiram.jpg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "credit": "Kanshi Ram — Deoriaamit / Wikimedia Commons, CC BY-SA 4.0.",
+    "obligations": "Link source and license, credit author. Indicate modifications, e.g. cropped. Any adapted image must retain CC BY-SA 4.0 or compatible license; do not imply endorsement.",
+    "dimensions": [
+      276,
+      182
+    ],
+    "notes": "Visually inspected: recognizable real profile photo of BSP founder speaking at microphones, not Pandit Kanshi Ram or Baba Kanshi Ram. Low resolution; suitable only for small display. Commons labels own work dated 11 December 2016 (after subject death), likely upload date; original photographer/provenance cannot be independently confirmed from file page."
+  },
+  {
+    "name": "Mayawati",
+    "file": "public/images/inspirations/mayawati.webp",
+    "author": "Ministry of Parliamentary Affairs, Government of India (EXIF photographer B. M. Meena; Photo Division, Ministry of Information & Broadcasting)",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Mayawati.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Mayawati.jpg",
+    "license": "Government Open Data License – India (GODL-India)",
+    "license_url": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+    "credit": "Mayawati — Ministry of Parliamentary Affairs, Government of India / Wikimedia Commons, GODL-India; cropped from a PIB photograph.",
+    "obligations": "Acknowledge provider, source URL, and license. Do not imply provider endorsement. Adaptation permitted; source is already cropped by Indopug, and any further crop should be disclosed.",
+    "dimensions": [
+      300,
+      401
+    ],
+    "notes": "Visually inspected: recognizable photographic close-up, smiling, cream outfit. Original PIB photo 41636, 7 August 2012. Commons bot reviewed original source on 2018-08-21."
+  }
+]
