@@ -158,7 +158,7 @@ export function JansevaPage({ locale: l }: { locale: Locale }) {
               COVID
             </span>
             <HandHeart size={70} strokeWidth={0.8} />
-            <p className="mt-8 font-display text-3xl">
+            <p className="mt-8 not-paragraph font-display text-3xl">
               {pick(
                 l,
                 "कठिन समय में मदद की असली परीक्षा होती है",

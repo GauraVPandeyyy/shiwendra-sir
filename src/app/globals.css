@@ -707,8 +707,22 @@ body:has(#mobile-nav-toggle:checked) {
   overflow: hidden !important;
   overscroll-behavior: none;
 }
-.editorial-text,
-.editorial-text p {
+p {
   text-align: justify;
   text-justify: inter-word;
+  text-align-last: left;
+  hyphens: none;
+}
+
+.not-paragraph {
+  text-align: text-start;
+  text-justify: none;
+  hyphens: none;
+}
+
+.p-center {
+  text-align: center;
+  text-justify: center;
+  hyphens: none;
+  text-align-last: center;
 }

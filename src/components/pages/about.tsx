@@ -103,7 +103,7 @@ export function AboutPage({ locale: l }: { locale: Locale }) {
           <Paragraphs
             locale={l}
             items={story[0].paragraphs}
-            className="text-ink/80"
+            className="text-ink/80 not-paragraph"
           />
         </div>
         <div className="mt-10">
@@ -180,7 +180,7 @@ export function AboutPage({ locale: l }: { locale: Locale }) {
           <Paragraphs
             locale={l}
             items={story[2].paragraphs}
-            className="text-ink/80"
+            className="text-ink/80 not-paragraph"
           />
         </div>
         <div className="grid border-t border-navy/20 md:grid-cols-3">
@@ -223,7 +223,7 @@ export function AboutPage({ locale: l }: { locale: Locale }) {
             >
               “
             </span>
-            <p className="font-display text-4xl leading-snug text-navy lg:text-5xl">
+            <p className="font-display p-center text-4xl leading-snug text-navy lg:text-5xl">
               {pick(
                 l,
                 "सार्थक सेवा में व्यक्ति का सम्मान केंद्र में रहे।",
@@ -255,7 +255,7 @@ export function AboutPage({ locale: l }: { locale: Locale }) {
                   className="h-14 w-auto opacity-75"
                 />
               </span>
-              <p className="max-w-56 text-sm leading-relaxed text-blue">
+              <p className="max-w-56 not-paragraph text-sm leading-relaxed text-blue">
                 {pick(
                   l,
                   "बहुजन समाज पार्टी • हरचंदपुर, रायबरेली",

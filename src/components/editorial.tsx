@@ -11,7 +11,7 @@ function splitOpening(locale: Locale, text: string) {
 export function Paragraphs({
   locale,
   items,
-  className = "",
+  className = "text-justify [text-justify:inter-word] [text-align-last:left] hyphens-auto leading-[1.9]",
 }: {
   locale: Locale;
   items: Bilingual[];

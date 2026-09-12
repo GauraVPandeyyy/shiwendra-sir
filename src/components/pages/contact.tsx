@@ -32,7 +32,7 @@ export function ContactPage({ locale: l }: { locale: Locale }) {
           </div>
           <div className="relative h-80 lg:h-auto">
             <Image
-              src="/images/portraits/shiwendra-cutout.webp"
+              src="/images/hero/smil-f.png"
               alt={name(l)}
               fill
               priority

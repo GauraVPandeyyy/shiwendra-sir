@@ -32,7 +32,7 @@ export const constituencyStory: Chapter[] = [
   {
     title: [
       "सात प्राथमिकताएँ, एक समग्र विकास दिशा",
-      "One constituency. Connected priorities.",
+      "One Constituency. Connected priorities.",
     ],
     paragraphs: [
       [

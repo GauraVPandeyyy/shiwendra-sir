@@ -73,7 +73,7 @@ export default function HeroSlide({
               variants={containerVariants}
               initial="hidden"
               animate="show"
-              className="w-[56%] max-w-[790px] pr-8"
+              className="w-[62%] max-w-[790px] pr-8"
             >
               <motion.div
                 variants={itemVariants}
@@ -87,7 +87,7 @@ export default function HeroSlide({
 
               <motion.h1
                 variants={itemVariants}
-                className={`${locale === "hi" ? "signature-title" : "font-display"} max-w-[820px] text-[clamp(3.15rem,5.1vw,5.55rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-navy`}
+                className={`${locale === "hi" ? "signature-title leading-[1.27]" : "font-display leading-[1.04]"} max-w-[820px] w-full text-[clamp(3.15rem,5.1vw,5.55rem)] font-semibold  tracking-[-0.025em] text-navy`}
               >
                 {say(locale, slide.title)}
               </motion.h1>

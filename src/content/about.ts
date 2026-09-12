@@ -61,8 +61,8 @@ export const aboutStory: Chapter[] = [
         "Meaningful service requires both compassion and practical attention. Not every useful act belongs on a public stage; it can begin by listening carefully, helping someone reach reliable information or connecting a family to the right channel at the right time. Shiwendra’s public-service identity is rooted in approachability, useful assistance and respect for the dignity of the person seeking help.",
       ],
       [
-        "सार्वजनिक नेतृत्व का अर्थ केवल अपनी बात कहना नहीं, अलग-अलग अनुभवों को सुनने की जगह बनाना भी है। किसान, युवा, विद्यार्थी, महिलाएँ, बुजुर्ग और अलग-अलग गाँवों के परिवार एक ही विषय को अलग परिस्थितियों से देखते हैं। इसलिए पहले से निष्कर्ष देने के बजाय संवाद से वास्तविक जरूरत समझना अधिक जिम्मेदार तरीका है। इसी सोच के कारण जनसंवाद वेबसाइट का प्रमुख सार्वजनिक माध्यम है।",
-        "Public leadership also means creating space for different experiences, not only presenting one’s own position. Farmers, young people, students, women, older citizens and families across different villages may encounter the same issue in very different ways. Listening before reaching conclusions is therefore a more responsible starting point, which is why Jan Samvad is a central public channel on this website.",
+        "सार्वजनिक नेतृत्व का अर्थ केवल अपनी बात कहना नहीं, अलग-अलग अनुभवों को सुनने की जगह बनाना भी है। किसान, युवा, विद्यार्थी, महिलाएँ, बुजुर्ग और अलग-अलग गाँवों के परिवार एक ही विषय को अलग परिस्थितियों से देखते हैं। इसलिए पहले से निष्कर्ष देने के बजाय संवाद से वास्तविक जरूरत समझना अधिक जिम्मेदार तरीका है। ",
+        "Public leadership also means creating space for different experiences, not only presenting one’s own position. Farmers, young people, students, women, older citizens and families across different villages may encounter the same issue in very different ways. Listening before reaching conclusions is therefore a more responsible starting point.",
       ],
     ],
   },

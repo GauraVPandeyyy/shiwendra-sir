@@ -316,7 +316,7 @@ export function HomePage({ locale: l }: { locale: Locale }) {
             max-w-[820px]
             font-display
             text-[2.4rem]
-            leading-[1.13]
+            leading-[1.32]
             tracking-[-0.02em]
             text-white
             sm:text-[3rem]
@@ -344,7 +344,7 @@ export function HomePage({ locale: l }: { locale: Locale }) {
 
             {/* divider */}
             <Reveal kind="fade">
-              <div className="my-7 flex items-center gap-3">
+              <div className="my-5 flex items-center gap-3">
                 <span className="h-[3px] w-14 bg-[#f5d36a]" />
                 <span className="h-px w-20 bg-white/30" />
               </div>

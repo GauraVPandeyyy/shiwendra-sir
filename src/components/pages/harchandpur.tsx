@@ -92,7 +92,7 @@ export function HarchandpurPage({ locale: l }: { locale: Locale }) {
                 "ASSEMBLY CONSTITUENCY 179 • RAE BARELI",
               )}
             </p>
-            <p className="mt-3 max-w-xl font-display text-2xl leading-[1.35] sm:text-3xl">
+            <p className="mt-3 max-w-xl not-paragraph font-display text-2xl leading-[1.35] sm:text-3xl">
               {pick(
                 l,
                 "जनता की जरूरत से विकास की स्पष्ट दिशा तक",
@@ -237,9 +237,7 @@ export function HarchandpurPage({ locale: l }: { locale: Locale }) {
         </div>
       </section>
       <section className="bg-[#dbe4e9]">
-        <div
-          className={`${wrap} grid gap-10 py-20 lg:grid-cols-[.85fr_1.15fr]`}
-        >
+        <div className={`${wrap} grid gap-1 py-20 lg:grid-cols-[.85fr_1.15fr]`}>
           <div>
             <p className="eyebrow">
               {pick(l, "समेकित विकास", "INTEGRATED DEVELOPMENT")}
@@ -322,7 +320,7 @@ export function HarchandpurPage({ locale: l }: { locale: Locale }) {
                   <div className="relative border-b border-white/20 py-9">
                     <span className="absolute -left-[35px] top-12 h-3 w-3 rounded-full bg-gold sm:-left-[55px]" />
                     <Icon className="mb-4 text-gold" />
-                    <p className="max-w-5xl font-display text-3xl leading-snug sm:text-5xl lg:text-6xl">
+                    <p className="max-w-5xl not-paragraph font-display text-3xl leading-snug sm:text-5xl lg:text-6xl">
                       {pick(l, hi as string, en as string)}
                     </p>
                   </div>

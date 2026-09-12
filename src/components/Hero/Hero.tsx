@@ -20,7 +20,7 @@ import type { Locale } from "@/content/site";
 
 export default function Hero({ locale }: { locale: Locale }) {
   return (
-    <section className="hero-section relative h-[90svh] min-h-[380px] w-full max-w-full overflow-hidden bg-[#f8f5ef] md:min-h-[700px]">
+    <section className="hero-section relative h-[90svh] min-h-[380px] w-full max-w-full overflow-hidden bg-[#f8f5ef] md:min-h-[550px]">
       <Swiper
         modules={[Autoplay, EffectFade, Keyboard, Navigation, Pagination, A11y]}
         slidesPerView={1}

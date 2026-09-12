@@ -26,7 +26,7 @@ export function Footer({ locale }: { locale: Locale }) {
             <p className="max-w-md font-display text-4xl leading-snug">
               {name(locale)}
             </p>
-            <p className="mt-5 max-w-sm text-sm leading-[1.8] text-white/68">
+            <p className="mt-5 not-paragraph max-w-sm text-sm leading-[1.8] text-white/68">
               {say(locale, candidate)}
             </p>
           </div>
