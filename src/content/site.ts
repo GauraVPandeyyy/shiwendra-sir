@@ -9,13 +9,16 @@ export const pick = (locale: Locale, hi: string, en: string) =>
 export const siteConfig = {
   nameHi: "शिवेन्द्र कुमार शुक्ला",
   nameEn: "Shiwendra Kumar Shukla",
-  facebook: "https://www.facebook.com/ShiwendraKumarShuklaRBL",
-  x: "https://x.com/Shiwendra4Rbl",
+  facebook:
+    process.env.NEXT_PUBLIC_FACEBOOK_URL ||
+    "https://www.facebook.com/ShiwendraKumarShuklaRBL",
+  x: process.env.NEXT_PUBLIC_X_URL ?? "https://x.com/Shiwendra4Rbl",
   instagram:
     process.env.NEXT_PUBLIC_INSTAGRAM_URL ||
     "https://www.instagram.com/shiwendra4rbl/",
   youtube:
-    process.env.NEXT_PUBLIC_YOUTUBE_URL || "https://www.youtube.com/@shiwendra",
+    process.env.NEXT_PUBLIC_YOUTUBE_URL ||
+    "https://www.youtube.com/@Shiwendrashukla4rbl",
   phone: process.env.NEXT_PUBLIC_PHONE || "",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "",
   publicEmail: process.env.NEXT_PUBLIC_PUBLIC_EMAIL || "",

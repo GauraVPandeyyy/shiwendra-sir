@@ -1,14 +1,22 @@
 import Image from "next/image";
+
 import { Locale, pick, say, name } from "@/content/site";
+
 import { homeCopy as c } from "@/content/home";
+
 import Hero from "@/components/Hero/Hero";
+
 import { Action, Photo, wrap } from "@/components/ui";
-import { Paragraphs, ThemeImage } from "@/components/editorial";
+
+import { Paragraphs } from "@/components/editorial";
+
 import { Reveal } from "@/components/reveal";
-import { ArrowUpRight, HeartPulse, MapPin } from "lucide-react";
+
+import { HeartPulse, MapPin } from "lucide-react";
+
 import { SocialMediaUpdate } from "@/components/social-media-update";
+
 import { BspMark } from "@/components/bsp-mark";
-import { locale } from "next/root-params";
 export function HomePage({ locale: l }: { locale: Locale }) {
   return (
     <>
@@ -54,11 +62,11 @@ export function HomePage({ locale: l }: { locale: Locale }) {
             className="portrait-shell relative mx-auto min-h-[500px] w-full max-w-[560px] sm:min-h-[610px]"
           >
             <div className="absolute inset-x-[7%] bottom-0 top-[10%] overflow-hidden rounded-[46%_46%_7%_7%/22%_22%_5%_5%] bg-gradient-to-b from-[#eef3f3] via-[#d9e3e5] to-[#c6d3d8] shadow-[0_28px_60px_rgba(6,47,99,.12)]" />
-            <div className="absolute left-[4%] top-[14%] z-20 rounded-full border border-navy/15 bg-ivory/90 px-4 py-2 text-xs font-semibold text-blue shadow-sm backdrop-blur-sm">
+            <div className="absolute left-[4%] top-[7%] sm:top-[14%] z-20 rounded-full border border-navy/15 bg-ivory/90 px-4 py-2 text-xs font-semibold text-blue shadow-sm backdrop-blur-sm">
               BSP • HARCHANDPUR
             </div>
             <Image
-              src="/images/hero/profile.png"
+              src="/images/gallery/profile.png"
               alt={name(l)}
               fill
               sizes="(max-width: 1023px) 100vw, 44vw"
@@ -234,7 +242,7 @@ export function HomePage({ locale: l }: { locale: Locale }) {
       "
           >
             {/* Party identity line */}
-            <Reveal kind="fade">
+            <Reveal kind="line">
               <div
                 className="
             mb-7
@@ -310,7 +318,7 @@ export function HomePage({ locale: l }: { locale: Locale }) {
             </Reveal>
 
             {/* Main heading */}
-            <Reveal kind="rise">
+            <Reveal kind="depth">
               <h2
                 className="
             max-w-[820px]
@@ -324,26 +332,26 @@ export function HomePage({ locale: l }: { locale: Locale }) {
             xl:text-[4rem]
           "
               >
-                {pick(
-                  l,
+                {l === "hi" ? (
                   <>
                     बसपा के साथ,
                     <span className="block text-[#f5d36a]">
                       हरचंदपुर के लिए
                     </span>
-                  </>,
+                  </>
+                ) : (
                   <>
                     With the BSP,
                     <span className="block text-[#f5d36a]">
                       for the people of Harchandpur
                     </span>
-                  </>,
+                  </>
                 )}
               </h2>
             </Reveal>
 
             {/* divider */}
-            <Reveal kind="fade">
+            <Reveal kind="line">
               <div className="my-5 flex items-center gap-3">
                 <span className="h-[3px] w-14 bg-[#f5d36a]" />
                 <span className="h-px w-20 bg-white/30" />
@@ -351,7 +359,7 @@ export function HomePage({ locale: l }: { locale: Locale }) {
             </Reveal>
 
             {/* Richer political copy */}
-            <Reveal kind="rise">
+            <Reveal kind="depth">
               <p
                 className="
             max-w-[790px]
@@ -371,7 +379,7 @@ export function HomePage({ locale: l }: { locale: Locale }) {
             </Reveal>
 
             {/* Political principles — no generic pills */}
-            <Reveal kind="fade">
+            <Reveal kind="line">
               <div
                 className="
             mt-8
@@ -396,7 +404,7 @@ export function HomePage({ locale: l }: { locale: Locale }) {
             </Reveal>
 
             {/* CTA */}
-            <Reveal kind="rise">
+            <Reveal kind="depth">
               <div className="mt-9">
                 <Action light href={`/${l}/harchandpur`}>
                   {pick(
@@ -596,6 +604,7 @@ export function HomePage({ locale: l }: { locale: Locale }) {
                   "सेवा के विषय का प्रतीकात्मक चित्र",
                   "Representative illustration of a service theme",
                 )}
+
                 fill
                 sizes="(max-width: 767px) 100vw, 60vw"
                 className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
@@ -740,7 +749,7 @@ export function HomePage({ locale: l }: { locale: Locale }) {
           />
           <div className="relative h-[340px] overflow-hidden bg-[#dfe3e7] sm:h-[460px]">
             <Image
-              src="/images/portraits/shiwendra-cutout.webp"
+              src="/images/gallery/public-2.webp"
               alt={name(l)}
               fill
               sizes="(max-width: 639px) 100vw, 35vw"

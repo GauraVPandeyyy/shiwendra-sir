@@ -17,6 +17,7 @@ import { Reveal } from "@/components/reveal";
 import { Photo, Action, wrap } from "@/components/ui";
 import { ArrowUpRight, Building2 } from "lucide-react";
 import { BspMark } from "@/components/bsp-mark";
+import { InspirationCard } from "@/components/inspiration-card";
 const companyGroups = [
   ["SAVIOR", saviorCompanies],
   ["RSMS", rsmsCompanies],
@@ -303,6 +304,7 @@ export function AboutPage({ locale: l }: { locale: Locale }) {
             {inspirations.map((p, i) => {
               const lead = i === 0;
               const side = i === 1 || i === 2;
+
               return (
                 <Reveal
                   key={p.id}
@@ -315,46 +317,13 @@ export function AboutPage({ locale: l }: { locale: Locale }) {
                         : "lg:col-span-4"
                   }
                 >
-                  <article
-                    className={`group relative isolate h-full min-h-[340px] overflow-hidden border border-white/15 ${lead ? "lg:min-h-[650px]" : side ? "lg:min-h-[316px]" : "lg:min-h-[390px]"}`}
-                  >
-                    <Image
-                      src={p.image}
-                      alt={say(l, p.name)}
-                      fill
-                      unoptimized={p.image.startsWith("http")}
-                      sizes={
-                        lead
-                          ? "(max-width:1023px) 100vw, 58vw"
-                          : "(max-width:1023px) 100vw, 34vw"
-                      }
-                      className={`${p.fit === "contain" ? "object-contain bg-[#d9d9d2] p-5" : "object-cover"} transition-transform duration-700 motion-safe:group-hover:scale-[1.035]`}
-                    />
-                    <div
-                      className={`absolute inset-0 ${lead ? "bg-gradient-to-t from-[#041326] via-[#041326]/30 to-transparent" : "bg-gradient-to-t from-[#041326] via-[#041326]/48 to-transparent"}`}
-                    />
-                    <span className="ui-label absolute left-5 top-5 z-10 border border-white/25 bg-[#071b35]/72 px-3 py-2 text-[10px] font-bold tracking-[.13em] text-gold backdrop-blur-sm">
-                      0{i + 1}
-                    </span>
-                    <div
-                      className={`absolute inset-x-0 bottom-0 z-10 ${lead ? "p-7 sm:p-9" : "p-6"}`}
-                    >
-                      <p className="ui-label text-[11px] font-bold uppercase tracking-[.11em] text-gold">
-                        {say(l, p.ideas)}
-                      </p>
-                      <h3
-                        className={`mt-3 font-display leading-tight ${lead ? "text-4xl sm:text-5xl" : "text-3xl"}`}
-                      >
-                        {say(l, p.name)}
-                      </h3>
-                      <p
-                        className={`mt-4 max-w-xl leading-[1.75] text-white/75 ${lead ? "text-base" : "text-sm"}`}
-                      >
-                        {say(l, p.body)}
-                      </p>
-                    </div>
-                    <span className="absolute bottom-0 left-0 z-20 h-[3px] w-16 bg-gold transition-all duration-700 group-hover:w-full" />
-                  </article>
+                  <InspirationCard
+                    item={p}
+                    index={i}
+                    locale={l}
+                    lead={lead}
+                    side={side}
+                  />
                 </Reveal>
               );
             })}

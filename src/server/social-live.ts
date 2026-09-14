@@ -1,6 +1,11 @@
 import "server-only";
 
-import type { SocialFeedResponse, SocialItem, SocialPlatform, SocialPlatformFeed } from "@/types/social";
+import type {
+  SocialFeedResponse,
+  SocialItem,
+  SocialPlatform,
+  SocialPlatformFeed,
+} from "@/types/social";
 
 const REVALIDATE_SECONDS = 600;
 const REQUEST_TIMEOUT_MS = 7000;
@@ -15,8 +20,7 @@ const PROFILE_URLS = {
     process.env.NEXT_PUBLIC_INSTAGRAM_URL ||
     "https://www.instagram.com/shiwendra4rbl/",
   YouTube:
-    process.env.NEXT_PUBLIC_YOUTUBE_URL ||
-    "https://www.youtube.com/@shiwendra",
+    process.env.NEXT_PUBLIC_YOUTUBE_URL || "https://www.youtube.com/@shiwendra",
   X: process.env.NEXT_PUBLIC_X_URL || "https://x.com/Shiwendra4Rbl",
 } satisfies Record<SocialPlatform, string>;
 
@@ -51,7 +55,10 @@ async function fetchJson<T>(url: URL, headers?: HeadersInit): Promise<T> {
   return (await response.json()) as T;
 }
 
-function notConfigured(platform: SocialPlatform, note: string): SocialPlatformFeed {
+function notConfigured(
+  platform: SocialPlatform,
+  note: string,
+): SocialPlatformFeed {
   return {
     platform,
     profileUrl: PROFILE_URLS[platform],
@@ -83,7 +90,9 @@ async function getFacebookFeed(): Promise<SocialPlatformFeed> {
   }
 
   try {
-    const url = new URL(`https://graph.facebook.com/${META_VERSION}/${pageId}/posts`);
+    const url = new URL(
+      `https://graph.facebook.com/${META_VERSION}/${pageId}/posts`,
+    );
     url.searchParams.set(
       "fields",
       "id,message,created_time,permalink_url,full_picture",
@@ -106,7 +115,9 @@ async function getFacebookFeed(): Promise<SocialPlatformFeed> {
         const postUrl = isHttpsUrl(item.permalink_url)
           ? item.permalink_url
           : PROFILE_URLS.Facebook;
-        const image = isHttpsUrl(item.full_picture) ? item.full_picture : undefined;
+        const image = isHttpsUrl(item.full_picture)
+          ? item.full_picture
+          : undefined;
         return {
           id: item.id || postUrl,
           platform: "Facebook" as const,
@@ -159,9 +170,11 @@ async function getInstagramFeed(): Promise<SocialPlatformFeed> {
     const directToken = process.env.INSTAGRAM_ACCESS_TOKEN;
     const directUserId = process.env.INSTAGRAM_USER_ID;
 
-    let connection:
-      | { userId: string; token: string; host: "instagram" | "facebook" }
-      | null = null;
+    let connection: {
+      userId: string;
+      token: string;
+      host: "instagram" | "facebook";
+    } | null = null;
 
     if (directToken && directUserId) {
       connection = {
@@ -213,7 +226,9 @@ async function getInstagramFeed(): Promise<SocialPlatformFeed> {
         return {
           id: item.id || item.permalink || crypto.randomUUID(),
           platform: "Instagram" as const,
-          url: isHttpsUrl(item.permalink) ? item.permalink : PROFILE_URLS.Instagram,
+          url: isHttpsUrl(item.permalink)
+            ? item.permalink
+            : PROFILE_URLS.Instagram,
           text: cleanText(item.caption),
           image: isHttpsUrl(imageCandidate) ? imageCandidate : undefined,
           publishedAt: item.timestamp,
@@ -246,7 +261,9 @@ async function getYouTubeFeed(): Promise<SocialPlatformFeed> {
   }
 
   try {
-    const channelUrl = new URL("https://www.googleapis.com/youtube/v3/channels");
+    const channelUrl = new URL(
+      "https://www.googleapis.com/youtube/v3/channels",
+    );
     channelUrl.searchParams.set("part", "contentDetails,snippet");
     channelUrl.searchParams.set("forHandle", handle);
     channelUrl.searchParams.set("key", apiKey);
@@ -259,8 +276,10 @@ async function getYouTubeFeed(): Promise<SocialPlatformFeed> {
       }>;
     }>(channelUrl);
 
-    const uploads = channelJson.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
-    if (!uploads) throw new Error("YouTube uploads playlist was not found for handle.");
+    const uploads =
+      channelJson.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+    if (!uploads)
+      throw new Error("YouTube uploads playlist was not found for handle.");
 
     const playlistUrl = new URL(
       "https://www.googleapis.com/youtube/v3/playlistItems",
@@ -284,30 +303,42 @@ async function getYouTubeFeed(): Promise<SocialPlatformFeed> {
       }>;
     }>(playlistUrl);
 
-    const items: SocialItem[] = (json.items || [])
-      .map((item) => {
-        const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId;
-        if (!videoId) return null;
+    const items: SocialItem[] = (json.items || []).flatMap(
+      (item): SocialItem[] => {
+        const videoId =
+          item.contentDetails?.videoId || item.snippet?.resourceId?.videoId;
+
+        if (!videoId) {
+          return [];
+        }
+
         const thumbs = item.snippet?.thumbnails || {};
+
         const image =
           thumbs.maxres?.url ||
           thumbs.standard?.url ||
           thumbs.high?.url ||
           thumbs.medium?.url ||
           thumbs.default?.url;
-        return {
-          id: item.id || videoId,
-          platform: "YouTube" as const,
-          url: `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`,
-          title: cleanText(item.snippet?.title, 220),
-          text: cleanText(item.snippet?.description, 700),
-          image: isHttpsUrl(image) ? image : undefined,
-          publishedAt:
-            item.contentDetails?.videoPublishedAt || item.snippet?.publishedAt,
-          mediaType: "video" as const,
-        };
-      })
-      .filter((item): item is SocialItem => Boolean(item));
+
+        return [
+          {
+            id: item.id || videoId,
+            platform: "YouTube",
+            url: `https://www.youtube.com/watch?v=${encodeURIComponent(
+              videoId,
+            )}`,
+            title: cleanText(item.snippet?.title, 220),
+            text: cleanText(item.snippet?.description, 700),
+            image: isHttpsUrl(image) ? image : undefined,
+            publishedAt:
+              item.contentDetails?.videoPublishedAt ||
+              item.snippet?.publishedAt,
+            mediaType: "video",
+          },
+        ];
+      },
+    );
 
     return {
       platform: "YouTube",
@@ -323,7 +354,10 @@ async function getYouTubeFeed(): Promise<SocialPlatformFeed> {
 
 async function getXFeed(): Promise<SocialPlatformFeed> {
   const bearer = process.env.X_BEARER_TOKEN;
-  const username = (process.env.X_USERNAME || "Shiwendra4Rbl").replace(/^@/, "");
+  const username = (process.env.X_USERNAME || "Shiwendra4Rbl").replace(
+    /^@/,
+    "",
+  );
 
   if (!bearer) {
     return notConfigured(

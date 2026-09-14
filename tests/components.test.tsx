@@ -32,7 +32,7 @@ dom.window.matchMedia = () => ({
 });
 test("carousel exposes three indicators, navigation, pause and resume", async () => {
   const { render, fireEvent, cleanup } = await import("@testing-library/react");
-  const { Hero } = await import("../src/components/hero");
+  const { default: Hero } = await import("../src/components/Hero/Hero");
   const React = await import("react");
   const view = render(React.createElement(Hero, { locale: "en" }));
   assert.equal(

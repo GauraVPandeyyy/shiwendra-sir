@@ -5,13 +5,15 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["terminal.local", "192.168.18.22"],
   images: {
     formats: ["image/avif", "image/webp"],
+    qualities: [75, 100],
+
     remotePatterns: [
       { protocol: "https", hostname: "upload.wikimedia.org" },
       { protocol: "https", hostname: "commons.wikimedia.org" },
     ],
   },
   async redirects() {
-    return [{ source: "/", destination: "/hi", permanent: true }];
+    return [{ source: "/", destination: "/en", permanent: true }];
   },
   async headers() {
     return [

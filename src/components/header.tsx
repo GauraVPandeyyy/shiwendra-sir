@@ -133,18 +133,33 @@ export function Header({ locale }: { locale: Locale }) {
      CLOSE MENUS AFTER ROUTE CHANGE
   --------------------------------------------------------- */
 
-  useEffect(() => {
-    setOpenDesktopMenu(null);
-    setOpenMobileSubmenu(null);
-
+  function setMobileMenuChecked(checked: boolean) {
     const toggle = document.getElementById(
       "mobile-nav-toggle",
     ) as HTMLInputElement | null;
 
-    if (toggle) {
-      toggle.checked = false;
-    }
-  }, [pathname]);
+    if (!toggle) return;
+
+    toggle.checked = checked;
+
+    /*
+    Important:
+    Programmatically changing .checked does NOT fire
+    the native change event.
+
+    Our scroll-lock / unlock logic listens to change,
+    so explicitly trigger it.
+  */
+    toggle.dispatchEvent(
+      new Event("change", {
+        bubbles: true,
+      }),
+    );
+  }
+
+  // useEffect(() => {
+  //   setMobileMenuChecked(false);
+  // }, [pathname]);
 
   /* ---------------------------------------------------------
      ESCAPE CLOSES DROPDOWNS
@@ -159,13 +174,7 @@ export function Header({ locale }: { locale: Locale }) {
       setOpenDesktopMenu(null);
       setOpenMobileSubmenu(null);
 
-      const toggle = document.getElementById(
-        "mobile-nav-toggle",
-      ) as HTMLInputElement | null;
-
-      if (toggle) {
-        toggle.checked = false;
-      }
+      setMobileMenuChecked(false);
     };
 
     window.addEventListener("keydown", onKeyDown);
@@ -190,14 +199,9 @@ export function Header({ locale }: { locale: Locale }) {
 
   function closeMobileMenu() {
     setOpenMobileSubmenu(null);
+    setOpenDesktopMenu(null);
 
-    const toggle = document.getElementById(
-      "mobile-nav-toggle",
-    ) as HTMLInputElement | null;
-
-    if (toggle) {
-      toggle.checked = false;
-    }
+    setMobileMenuChecked(false);
   }
 
   /* ---------------------------------------------------------

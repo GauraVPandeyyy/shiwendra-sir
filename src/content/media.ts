@@ -80,9 +80,9 @@ export const galleryItems: GalleryItem[] = [
     kind: "image",
     src: "/images/gallery/public-7.jpeg",
   },
-  // {
-  //   id: "public-8",
-  //   kind: "image",
-  //   src: "/images/gallery/public-8.png",
-  // },
+  {
+    id: "public-9",
+    kind: "image",
+    src: "/images/gallery/public-9.jpeg",
+  },
 ];

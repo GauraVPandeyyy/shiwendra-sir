@@ -30,7 +30,7 @@ export function HarchandpurPage({ locale: l }: { locale: Locale }) {
       <section className="relative isolate overflow-hidden bg-navy text-white">
         {(() => {
           const desktop = getImageProps({
-            src: "/images/hero/pp3.jpeg",
+            src: "/images/gallery/fd3.png",
             alt: "",
             width: 1672,
             height: 941,
@@ -38,7 +38,7 @@ export function HarchandpurPage({ locale: l }: { locale: Locale }) {
             sizes: "100vw",
           }).props;
           const mobile = getImageProps({
-            src: "/images/hero/dd3.jpeg",
+            src: "/images/gallery/fm3.png",
             alt: "",
             width: 1080,
             height: 1920,

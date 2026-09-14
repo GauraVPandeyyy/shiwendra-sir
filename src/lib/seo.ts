@@ -248,7 +248,8 @@ export function StructuredData({
 
         alternateName: "शिवेन्द्र कुमार शुक्ला",
 
-        url: `${origin}/${locale}`,
+        // Stable canonical Person page
+        url: `${origin}/en/about`,
 
         description: copy[locale].candidate,
 
@@ -317,6 +318,14 @@ export function StructuredData({
         isPartOf: {
           "@id": siteId,
         },
+
+        ...(path === "/about"
+          ? {
+              mainEntity: {
+                "@id": personId,
+              },
+            }
+          : {}),
 
         about: {
           "@id": personId,
